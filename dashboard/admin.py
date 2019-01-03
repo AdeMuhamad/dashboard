@@ -1,5 +1,7 @@
 from django.contrib import admin
+from django.contrib.auth.models import Group
 from .models import Post, User
+
 
 class PostAdmin(admin.ModelAdmin):
 	list_display = ('user_id','title', 'subtitle', 'slug', 'content')
@@ -12,4 +14,5 @@ class UserAdmin(admin.ModelAdmin):
 	list_display = ('username','email','created_at')
 
 admin.site.register(User,UserAdmin)
+admin.site.unregister(Group)
 # Register your models here.
